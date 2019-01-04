@@ -13,6 +13,10 @@ a:hover{
   text-decoration: none;
 }
 
+p{
+  font-size: 20px;
+}
+
 .contact{
   color: black;
 }
@@ -45,7 +49,8 @@ a:hover{
 
 
 .sliding_images{
-  max-width: 100%;
+  width: 100%;
+  z-index: 0;
   height: auto;
 }
 
@@ -67,8 +72,18 @@ a:hover{
   text-align: center;
 }
 
-.description{
+.banner{
   grid-row: 4;
+  height: 100px;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+}
+
+.description{
+  grid-row: 5;
   text-align: left;
   padding-top: 20px;
   padding-left: 200px;
@@ -77,8 +92,20 @@ a:hover{
   font-size: 20px;
 }
 
+.description-title{
+  color: black;
+}
+
+.executive{
+  padding: 50px;
+}
+
+.table{
+  background-color: turquoise;
+}
+
 .footer{
-  grid-row: 5;
+  grid-row: 6;
   background-color: lightgreen;
   text-align: center;
   color: black;
@@ -92,8 +119,5 @@ a:hover{
 .facebook{
   width: 20px;
   height: auto;
-}
-
-.alignment{
-  display: inline-block;
+  font-size: 20px;
 }
