@@ -1,14 +1,17 @@
-const http = require('http');
+"use strict";
 
-const hostname = '127.0.0.1';
-const port = 12000;
+const express = require('express');
+let app = express();
+let router = express.Router();
+const bodyParser = require('body-parser');
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+router.get('/', function(req, res){
+   res.send('GET route on things.');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+router.post('/', function(req, res){
+   res.send('POST route on things.');
 });
+
+module.exports = app;
+app.listen(3000);

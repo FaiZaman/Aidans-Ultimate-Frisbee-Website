@@ -1,0 +1,23 @@
+{
+  "name": "aidans-ultimate-frisbee-website",
+  "version": "1.0.0",
+  "description": "Coursework for Web Programming.\r May use as actual frisbee website when completed",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaiZaman/Aidans-Ultimate-Frisbee-Website.git"
+  },
+  "author": "Faiz Zaman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FaiZaman/Aidans-Ultimate-Frisbee-Website/issues"
+  },
+  "homepage": "https://github.com/FaiZaman/Aidans-Ultimate-Frisbee-Website#readme"
+}
