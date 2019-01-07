@@ -1,17 +1,17 @@
+/* jshint -W097 */
+/* jshint esversion: 6 */
+/* jshint node: true */
 "use strict";
 
 const express = require('express');
-let app = express();
-let router = express.Router();
-const bodyParser = require('body-parser');
+const app = express();
 
-router.get('/', function(req, res){
+app.get('/', (req, res) => {
    res.send('GET route on things.');
 });
 
-router.post('/', function(req, res){
+app.post('/', (req, res) => {
    res.send('POST route on things.');
 });
 
 module.exports = app;
-app.listen(3000);
