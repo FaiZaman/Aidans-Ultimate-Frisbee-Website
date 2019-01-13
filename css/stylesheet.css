@@ -47,7 +47,6 @@ p{
   padding-top: 8px;
 }
 
-
 .sliding_images{
   width: 100%;
   z-index: 0;
@@ -98,10 +97,29 @@ p{
 
 .executive{
   padding: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .table{
   background-color: white;
+}
+
+.form-popup {
+  display: none;
+}
+
+.form-container {
+  margin-top: -2px;
+  background-color: white;
+  border-style: solid;
+  border-color: #5cb85c;
+  border-width: thick;
+  max-width: 100%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .footer{
@@ -109,11 +127,11 @@ p{
   background-color: lightgreen;
   text-align: center;
   color: black;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .footer-title{
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .facebook{

@@ -84,7 +84,17 @@
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-success">Add new Exec member</button>
+    <button class="btn btn-success" onclick="openForm()">Add new Exec member</button>
+    <div class="form-popup" id="add-member">
+      <form class="form-container" method="get">
+        <label for="name">Name: &nbsp; </label>
+        <input type="text" class="form-control" placeholder="Enter full name" required><br>
+        <label for="role">Role: &nbsp; &nbsp;</label>
+        <input type="text" class="form-control" placeholder="Enter role" required><br>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-danger" onclick="closeForm()">Cancel</button>
+      </form>
+    </div>
   </div>
 
   <div class="footer">
@@ -100,3 +110,7 @@
 </div>
 
 </body>
+
+<script src="js/index.js"></script>
+
+</html>
