@@ -5,18 +5,5 @@
 "use strict";
 
 const app = require('./app.js');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Server running at localhost:${ port }`));
-
-function openForm() {
-  if (document.getElementById("add-member").style.display != "block"){
-    document.getElementById("add-member").style.display = "block";
-  }
-  else {
-  document.getElementById("add-member").style.display = "none";
-  }
-}
-
-function closeForm() {
-  document.getElementById("add-member").style.display = "none";
-}
