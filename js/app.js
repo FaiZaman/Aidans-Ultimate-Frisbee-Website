@@ -7,40 +7,72 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname + '/..')));
 
-app.get('/', (request, response) => {
-   response.sendStatus(200);
-   response.end();
-});
-
-app.post('/', (request, response) => {
-   response.send('POST route on things.');
-});
-
-let exec = {
-	"1": {
-		"first_name": "Lewis",
-		"last_name": "Sudbury",
-		"username": "lewbew02",
-		"role": "A-Team Captain"
+let exec = [
+	{
+    "username": "doctorwhocomposer",
+		"forename": "Delia",
+		"surname": "Derbyshire",
+		"role": "Composer"
 	},
-	"2": {
-		"first_name": "Tom",
-		"last_name": "Lafferety",
-		"username": "tombom0h0m",
-		"role": "B-Team Captain"
-	}
-};
+  {
+    "username": "lewbew02",
+    "forename": "Lewis",
+    "surname": "Sudbury",
+    "role": "A-Team Captain"
+  },
+  {
+    "username": "tomthetank",
+    "forename": "Tom",
+    "surname": "Lafferty",
+    "role": "B-Team Captain"
+  },
+  {
+    "username": "samchamp",
+    "forename": "Sam",
+    "surname": "Higginson",
+    "role": "Social Secretary"
+  },
+  {
+    "username": "hermworm",
+    "forename": "Herman",
+    "surname": "Wong",
+    "role": "Treasurer"
+  },
+  {
+    "username": "carrrolina",
+    "forename": "Carolina",
+    "surname": "Girlons",
+    "role": "Photographer"
+  },
+  {
+    "username": "baxman",
+    "forename": "Oliver",
+    "surname": "Baxandall",
+    "role": "Just a genuine guy to be honest"
+  }
+];
 
-let execJSON = JSON.stringify(exec);
+app.get('/people', (request, response) => {
+  response.send(exec);
+  response.statusCode(200);
+});
 
-const requestDir = path.join(__dirname + '/../json/data.json');
-const request = new XMLHttpRequest();
-request.open("GET", requestDir);
+app.get('/people/:id', (request, response) => {
+  // each individual person identified by username
+});
+
+app.post('/people', (request, response) => {
+  let rowData = {};
+  rowData.username = request.body.username;
+  rowData.forename = request.body.forename;
+  rowData.surname = request.body.surname;
+  rowData.role = request.body.role;
+  response.send(rowData);
+});
 
 module.exports = app;

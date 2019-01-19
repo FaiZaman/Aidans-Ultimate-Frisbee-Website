@@ -95,6 +95,10 @@ p{
   color: black;
 }
 
+.login{
+  padding: 80px;
+}
+
 .executive{
   padding: 50px;
   padding-left: 100px;
