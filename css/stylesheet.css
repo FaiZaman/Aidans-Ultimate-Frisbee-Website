@@ -96,7 +96,11 @@ p{
 }
 
 .login{
-  padding: 80px;
+  padding: 10px;
+}
+
+.login-link{
+  float: right;
 }
 
 .executive{

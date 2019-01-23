@@ -15,42 +15,49 @@ app.use(express.static(path.join(__dirname + '/..')));
 let exec = [
 	{
     "username": "doctorwhocomposer",
+		"password": "123456",
 		"forename": "Delia",
 		"surname": "Derbyshire",
 		"role": "Composer"
 	},
   {
     "username": "lewbew02",
+		"password": "123456",
     "forename": "Lewis",
     "surname": "Sudbury",
     "role": "A-Team Captain"
   },
   {
     "username": "tomthetank",
+		"password": "123456",
     "forename": "Tom",
     "surname": "Lafferty",
     "role": "B-Team Captain"
   },
   {
     "username": "samchamp",
+		"password": "123456",
     "forename": "Sam",
     "surname": "Higginson",
     "role": "Social Secretary"
   },
   {
     "username": "hermworm",
+		"password": "123456",
     "forename": "Herman",
     "surname": "Wong",
     "role": "Treasurer"
   },
   {
     "username": "carrrolina",
+		"password": "123456",
     "forename": "Carolina",
     "surname": "Girlons",
     "role": "Photographer"
   },
   {
     "username": "baxman",
+		"password": "123456",
     "forename": "Oliver",
     "surname": "Baxandall",
     "role": "Just a genuine guy to be honest"
@@ -59,20 +66,24 @@ let exec = [
 
 app.get('/people', (request, response) => {
   response.send(exec);
-  response.statusCode(200);
 });
 
-app.get('/people/:id', (request, response) => {
+app.get('/people/:username', (request, response) => {
   // each individual person identified by username
+	const person = exec.find(p => p.username == request.params.username);
+	if (!person){
+		response.status(404).send("The requested person could not be found");
+	}
+	else{
+		response.send(person);
+	}
 });
 
-app.post('/people', (request, response) => {
-  let rowData = {};
-  rowData.username = request.body.username;
-  rowData.forename = request.body.forename;
-  rowData.surname = request.body.surname;
-  rowData.role = request.body.role;
-  response.send(rowData);
+app.post('/executive_list', (request, response) => {
+	let username = request.params.username;
+	let forename = request.params.forename;
+	let surname = request.params.surname;
+	let role = request.params.role;
 });
 
 module.exports = app;

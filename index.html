@@ -21,6 +21,10 @@
       <img src="img/aidan_frisbee_logo.png" href="logo" width="110px;" height="110px;">
       <b>St Aidan's Ultimate Frisbee</b>
     </a>
+    <div class="login-link">
+      <button class="btn btn-primary" data-toggle="modal"
+       data-target="#loginModal">Log In</button>
+   </div>
   </div>
 
   <div class="main-navbar">
@@ -39,7 +43,6 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="match_schedules.html">Match Schedules</a></li>
-              <li><a href="login.html">Login</a></li>
               <li><a href="executive_list.html">Executive List</a></li>
             </ul>
           </div>
@@ -94,6 +97,32 @@
       </a>
     </div>
   </div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+  aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="loginModalLabel">Please enter your login details below</h3>
+        </div>
+        <div class="modal-body">
+          <div class="login">
+            <form class="form-container">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" placeholder="Enter username">
+              <br><label for="password">Password:</label>
+              <input type="password" class="form-control" placeholder="Enter password"><br>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <img class="banner" src="img/frisbee3.jpg">
 
   <div class="description">
