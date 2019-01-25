@@ -64,6 +64,76 @@ let exec = [
   }
 ];
 
+let matches = [
+	{
+		"opponent": "St John's A's",
+		"score": "6 - 7 (L)",
+		"venue": "Whinney Hill 1",
+		"date": "21/10/2018",
+		"time": "12:00pm"
+	},
+	{
+		"opponent": "St Cuthbert's A's",
+		"score": "3 - 12 (L)",
+		"venue": "Whinney Hill 1",
+		"date": "28/10/2018",
+		"time": "12:00pm"
+	},
+	{
+		"opponent": "Hatfield A's",
+		"score": "8 - 11 (L)",
+		"venue": "American Football Pitch",
+		"date": "19/01/2019",
+		"time": "12:00pm"
+	},
+	{
+		"opponent": "Collingwood A's",
+		"score": "",
+		"venue": "American Football Pitch",
+		"date": "26/01/2019",
+		"time": "12:00pm"
+	},
+	{
+		"opponent": "St Chad's A's",
+		"score": "",
+		"venue": "Whinney Hill 2",
+		"date": "27/01/2019",
+		"time": "01:00pm"
+	},
+	{
+		"opponent": "Castle A's",
+		"score": "",
+		"venue": "Whinney Hill 2",
+		"date": "16/02/2019",
+		"time": "01:00pm"
+	},
+	{
+		"opponent": "Trevelyan A's",
+		"score": "",
+		"venue": "Whinney Hill 1",
+		"date": "23/02/2019",
+		"time": "01:00pm"
+	},
+	{
+		"opponent": "Grey A's",
+		"score": "",
+		"venue": "Whinney Hill 2",
+		"date": "24/02/2019",
+		"time": "01:00pm"
+	},
+	{
+		"opponent": "Ustinov A's",
+		"score": "",
+		"venue": "Whinney Hill 2",
+		"date": "09/03/2019",
+		"time": "01:00pm"
+	}
+];
+
+app.get('/matches', (request, response) => {
+	response.send(matches);
+});
+
 app.get('/people', (request, response) => {
   response.send(exec);
 });
@@ -79,7 +149,7 @@ app.get('/people/:username', (request, response) => {
 	}
 });
 
-app.post('/executive_list', (request, response) => {
+app.post('/add_person', (request, response) => {
 	let username = request.params.username;
 	let forename = request.params.forename;
 	let surname = request.params.surname;
