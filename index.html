@@ -16,20 +16,21 @@
 
 <div class="container-fluid">
 
-  <div class="title">
-    <a href="index.html">
-      <img src="img/aidan_frisbee_logo.png" href="logo" width="110px;" height="110px;">
-      <b>St Aidan's Ultimate Frisbee</b>
-    </a>
-    <div class="login-link">
-      <button class="btn btn-primary" data-toggle="modal"
-       data-target="#loginModal">Log In
-       <img src="img/login.jpg" id="login-img">
-     </button>
-   </div>
+  <div class="row" id="title">
+      <a href="index.html">
+        <img src="img/aidan_frisbee_logo.png" href="logo" width="110px;" height="110px;">
+        <b>St Aidan's Ultimate Frisbee</b>
+      </a>
+      <div id="login-link">
+        <button class="btn btn-primary" data-toggle="modal"
+         data-target="#loginModal">Log In
+         <img src="img/login.jpg" id="login-img">
+       </button>
+      </div>
+    </div>
   </div>
 
-  <div class="main-navbar">
+  <div class="row" id="main-navbar">
     <nav class="navbar navbar-inverse">
       <div class="navbar-center-block">
         <div class="navbar-header">
@@ -40,20 +41,18 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div class="container_fluid">
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="match_schedules.html">Match Schedules</a></li>
-              <li><a href="executive_list.html">Executive List</a></li>
-            </ul>
-          </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="match_schedules.html">Match Schedules</a></li>
+            <li><a href="executive_list.html">Executive List</a></li>
+          </ul>
         </div>
       </div>
     </nav>
   </div>
 
-  <div class="carousel">
+  <div class="row" id="carousel">
     <div id="carouselSlides" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselSlides" data-slide-to="0" class="active"></li>
@@ -100,7 +99,7 @@
     </div>
   </div>
 
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+  <div class="modal fade row" id="loginModal" tabindex="-1" role="dialog"
   aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -125,10 +124,8 @@
     </div>
   </div>
 
-  <img class="banner" src="img/frisbee3.jpg">
-
-  <div class="description">
-    <h2 class="description-title">A brief history and summary of Aidan's Ultimate Frisbee by the A-team captain</h2>
+  <div class="row" id="description">
+    <h2 id="description-title">A brief history and summary of Aidan's Ultimate Frisbee by the A-team captain</h2>
     <br>
     Ultimate Frisbee is one of the fastest growing sports in the country
      and the Aidan's college team [SACUF] has an exciting and successful history within this trend.
@@ -173,14 +170,21 @@
      you too could reach these standards some day - the only way to find out is to join us and see!
   </div>
 
-  <div class="footer">
-    <h2 class="footer-title"><b>Contact Us:</b></h2>
-      <p>Email: ultimate-frisbee@st-aidans.com</p>
-      <p>Tel: +44 (0) 7219 8156</p>
-      <a class="contact" href="https://www.facebook.com/groups/1368502199946708" target="_blank">
-        <img class="facebook" src="img/facebook_logo.png" href="logo">
+  <div class="footer row" id="footer">
+    <div class="col-xs-6">
+      <h2 id="footer-title"><b>Contact Us:</b></h2>
+        <p>Email: ultimate-frisbee@st-aidans.com</p>
+        <p>Tel: +44 (0) 7219 8156</p>
+    </div>
+    <div class="col-xs-6">
+      <h2 id="footer-title"><b>Social Media:</b></h2>
+      <a id="contact" href="https://www.facebook.com/groups/1368502199946708" target="_blank">
+        <img id="facebook" src="img/facebook_logo.png" href="logo">
         <b class="facebook">Join our Facebook group for updates</b>
       </a>
+      <br><br>
+      <p2>Copyright © @ St Aidan's Ultimate Frisbee 2019</p2>
+    </div>
   </div>
 
 </div>

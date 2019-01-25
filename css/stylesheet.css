@@ -17,7 +17,7 @@ p{
   font-size: 20px;
 }
 
-.contact{
+#contact{
   color: black;
 }
 
@@ -47,7 +47,7 @@ p{
   height: auto;
 }
 
-.title{
+#title{
   text-align: center;
   font-size: 30px;
   background-color: lightgreen;
@@ -55,28 +55,16 @@ p{
   color: white;
 }
 
-.main-navbar{
-  grid-column: 1 / 4;
+#main-navbar{
   text-align: center;
   margin-bottom: -20px;
 }
 
-.carousel{
+#carousel{
   text-align: center;
 }
 
-.banner{
-  grid-row: 4;
-  height: 100px;
-  padding-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  display: block;
-}
-
-.description{
-  grid-row: 5;
+#description{
   text-align: left;
   padding-top: 20px;
   padding-left: 200px;
@@ -85,15 +73,11 @@ p{
   font-size: 20px;
 }
 
-.description-title{
+#description-title{
   color: black;
 }
 
-.login{
-  padding: 10px;
-}
-
-.login-link{
+#login-link{
   float: right;
 }
 
@@ -102,7 +86,7 @@ p{
   width: auto;
 }
 
-.executive-matches{
+#executive-matches{
   padding: 50px;
   padding-left: 100px;
   padding-right: 100px;
@@ -129,19 +113,18 @@ p{
   padding-right: 10px;
 }
 
-.footer{
-  grid-row: 6;
+#footer{
   background-color: lightgreen;
   text-align: center;
   color: black;
   padding-bottom: 10px;
 }
 
-.footer-title{
+#footer-title{
   font-size: 30px;
 }
 
-.facebook{
+#facebook{
   width: 20px;
   height: auto;
   font-size: 20px;
