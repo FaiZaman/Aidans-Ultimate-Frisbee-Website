@@ -149,11 +149,33 @@ app.get('/people/:username', (request, response) => {
 	}
 });
 
-app.post('/add_person', (request, response) => {
-	let username = request.params.username;
-	let forename = request.params.forename;
-	let surname = request.params.surname;
-	let role = request.params.role;
+app.post('/people', (request, response) => {
+	const username = request.headers.username;
+	const forename = request.headers.forename;
+	const surname = request.headers.surname;
+	const role = request.headers.role;
+	const access_token = request.headers.access_token;
+
+	const duplicate = exec.find(p => p.username == username);
+
+	if (access_token != "concertina"){
+		response.status(403).send("Incorrect access token");
+	}
+	else if (duplicate){
+		response.status(400).send("This username is already taken");
+	}
+	else{
+		const person = {
+		    "username": username,
+				"password": "123456",
+				"forename": forename,
+				"surname": surname,
+				"role": role
+		};
+
+		exec.push(person);
+		response.status(200).send();
+	}
 });
 
 module.exports = app;

@@ -9,9 +9,9 @@
 $(document).ready(function(){
   // opening and closing the form
   $(".btn-success").click(function(){
-    $(".form-popup").toggle(500);
+    $("#form-popup").toggle(500);
   });
   $(".btn-danger").click(function(){
-    $(".form-popup").hide(500);
+    $("#form-popup").hide(500);
   });
 });
