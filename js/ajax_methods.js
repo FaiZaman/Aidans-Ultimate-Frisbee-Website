@@ -7,6 +7,8 @@
 "use strict";
 
 $(document).ready(function(){
+  $("#add-member-button").prop('disabled', 'true');
+
   $.getJSON("http://localhost:8080/people", function(data){
     // get JSON and load it into the table
     let tableData = "";
@@ -36,13 +38,6 @@ $(document).ready(function(){
     $("#matchTable").append(tableData);
   });
 
-  // verify login with JSON
-  $("#login-form").on('submit', function(){
-    const username = $("#username").val();
-    const password = $("#password").val();
-    console.log(username, password);
-  });
-
   // get data submitted for a POST requested
   $("#add-member-form").on('submit', function(e){
     e.preventDefault();
@@ -69,5 +64,28 @@ $(document).ready(function(){
       dataType: "json",
     });
     location.reload();
+  }
+
+  // verify login with JSON
+  $("#login-submit").on('click', function(){
+    const username = $("#username").val();
+    const password = $("#password").val();
+    console.log(username, password);
+    verifyLogin(username, password);
+  });
+
+  function verifyLogin(username, password){
+    // loop through the JSON and check for a username and password match
+    $.getJSON("http://localhost:8080/people", function(data){
+      $.each(data, function(key, value){
+        if (username == value.username){
+          if (password == value.password){
+            $("#loginModal").hide(500);
+            $("#login-close").click();
+            $("#add-member-button").prop('disabled', 'false');
+          }
+        }
+      });
+    });
   }
 });
