@@ -7,23 +7,42 @@
 "use strict";
 
 $(document).ready(function(){
-  $("#add-member-button").prop('disabled', 'true');
+  let loggedIn = false;
 
-  $.getJSON("http://localhost:8080/people", function(data){
-    // get JSON and load it into the table
-    let tableData = "";
-    $.each(data, function(key, value){
-      tableData += "<tr>";
-      tableData += "<th scope='row'>" + value.username + "</th>";
-      tableData += "<td>" + value.forename + "</td>";
-      tableData += "<td>" + value.surname + "</td>";
-      tableData += "<td>" + value.role + "</td>";
-      tableData += "</tr>";
+  function checkLoggedIn(){
+    if (!loggedIn){
+      $("#add-member-button").hide();
+    }
+    else{
+      $("#add-member-button").show(500);
+      $("#login-button").text("Log Out");
+    }
+  }
+  checkLoggedIn();
+
+  const origin = window.location.origin;
+  const urlPeople = origin + "/people";
+  const urlMatches = origin + "/matches";
+
+  function getRequest(){
+    $.getJSON(urlPeople, function(data){
+      // get JSON and load it into the table
+      let tableData = "";
+      $.each(data, function(key, value){
+        tableData += "<tr>";
+        tableData += "<th scope='row'>" + value.username + "</th>";
+        tableData += "<td>" + value.forename + "</td>";
+        tableData += "<td>" + value.surname + "</td>";
+        tableData += "<td>" + value.role + "</td>";
+        tableData += "</tr>";
+      });
+      $("#execTable").append(tableData);
     });
-    $("#execTable").append(tableData);
-  });
+  }
 
-  $.getJSON("http://localhost:8080/matches", function(data){
+  getRequest();
+
+  $.getJSON(urlMatches, function(data){
     // get JSON and load it into the table
     let tableData = "";
     $.each(data, function(key, value){
@@ -63,26 +82,35 @@ $(document).ready(function(){
       },
       dataType: "json",
     });
-    location.reload();
+    $("#tableBody").empty();
+    getRequest();
+    emptyFields();
+  }
+
+  function emptyFields(){
+    $("#new-username").val("");
+    $("#new-forename").val("");
+    $("#new-surname").val("");
+    $("#new-role").val("");
   }
 
   // verify login with JSON
   $("#login-submit").on('click', function(){
     const username = $("#username").val();
     const password = $("#password").val();
-    console.log(username, password);
     verifyLogin(username, password);
   });
 
   function verifyLogin(username, password){
     // loop through the JSON and check for a username and password match
-    $.getJSON("http://localhost:8080/people", function(data){
+    $.getJSON(urlPeople, function(data){
       $.each(data, function(key, value){
         if (username == value.username){
           if (password == value.password){
             $("#loginModal").hide(500);
             $("#login-close").click();
-            $("#add-member-button").prop('disabled', 'false');
+            loggedIn = true;
+            checkLoggedIn();
           }
         }
       });

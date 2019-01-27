@@ -88,14 +88,14 @@ let matches = [
 	},
 	{
 		"opponent": "Collingwood A's",
-		"score": "",
+		"score": "7 - 6 (W)",
 		"venue": "American Football Pitch",
 		"date": "26/01/2019",
 		"time": "12:00pm"
 	},
 	{
 		"opponent": "St Chad's A's",
-		"score": "",
+		"score": "To be rescheduled",
 		"venue": "Whinney Hill 2",
 		"date": "27/01/2019",
 		"time": "01:00pm"
