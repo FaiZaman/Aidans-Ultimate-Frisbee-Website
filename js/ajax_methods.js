@@ -72,7 +72,7 @@ $(document).ready(function(){
     $.ajax({
       type: "POST",
       contentType: "application/json",
-      url: "http://localhost:8080/people",
+      url: "/people",
       headers: {
         "username": username,
         "forename": forename,
