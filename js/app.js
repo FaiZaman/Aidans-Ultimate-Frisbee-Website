@@ -94,13 +94,6 @@ let matches = [
 		"time": "12:00pm"
 	},
 	{
-		"opponent": "St Chad's A's",
-		"score": "To be rescheduled",
-		"venue": "Whinney Hill 2",
-		"date": "27/01/2019",
-		"time": "01:00pm"
-	},
-	{
 		"opponent": "Castle A's",
 		"score": "",
 		"venue": "Whinney Hill 2",
@@ -127,6 +120,13 @@ let matches = [
 		"venue": "Whinney Hill 2",
 		"date": "09/03/2019",
 		"time": "01:00pm"
+	},
+	{
+		"opponent": "St Chad's A's",
+		"score": "",
+		"venue": "Whinney Hill 1",
+		"date": "10/03/2019",
+		"time": "12:00pm"
 	}
 ];
 

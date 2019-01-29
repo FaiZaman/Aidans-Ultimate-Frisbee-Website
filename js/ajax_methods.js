@@ -11,7 +11,8 @@ $(document).ready(function(){
 
   function checkLoggedIn(){
     if (!loggedIn){
-      $("#add-member-button").hide();
+      //$("#add-member-button").hide();
+      $("#login-button").text("Log In");
     }
     else{
       $("#add-member-button").show(500);
@@ -19,6 +20,37 @@ $(document).ready(function(){
     }
   }
   checkLoggedIn();
+
+  // verify login with JSON
+  $("#login-button").on('click', function(){
+    if (loggedIn == false){
+      $("#login-submit").on('click', function(){
+        const username = $("#username").val();
+        const password = $("#password").val();
+        verifyLogin(username, password);
+      });
+    }
+    else{
+      loggedIn = false;
+      checkLoggedIn();
+    }
+  });
+
+  function verifyLogin(username, password){
+    // loop through the JSON and check for a username and password match
+    $.getJSON(urlPeople, function(data){
+      $.each(data, function(key, value){
+        if (username == value.username){
+          if (password == value.password){
+            $("#loginModal").hide(500);
+            $("#login-close").click();
+            loggedIn = true;
+            checkLoggedIn();
+          }
+        }
+      });
+    });
+  }
 
   const origin = window.location.origin;
   const urlPeople = origin + "/people";
@@ -92,28 +124,5 @@ $(document).ready(function(){
     $("#new-forename").val("");
     $("#new-surname").val("");
     $("#new-role").val("");
-  }
-
-  // verify login with JSON
-  $("#login-submit").on('click', function(){
-    const username = $("#username").val();
-    const password = $("#password").val();
-    verifyLogin(username, password);
-  });
-
-  function verifyLogin(username, password){
-    // loop through the JSON and check for a username and password match
-    $.getJSON(urlPeople, function(data){
-      $.each(data, function(key, value){
-        if (username == value.username){
-          if (password == value.password){
-            $("#loginModal").hide(500);
-            $("#login-close").click();
-            loggedIn = true;
-            checkLoggedIn();
-          }
-        }
-      });
-    });
   }
 });

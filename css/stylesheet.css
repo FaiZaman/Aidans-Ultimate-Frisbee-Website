@@ -17,6 +17,12 @@ p{
   font-size: 20px;
 }
 
+.error{
+	display: none;
+	margin-left: 10px;
+  color: red;
+}
+
 #contact{
   color: black;
 }
