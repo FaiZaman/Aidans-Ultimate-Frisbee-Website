@@ -15,42 +15,42 @@ app.use(express.static(path.join(__dirname + '/..')));
 let exec = [
 	{
     "username": "doctorwhocomposer",
-		"password": "123456",
+		"password": "abcdef",
 		"forename": "Delia",
 		"surname": "Derbyshire",
 		"role": "Composer"
 	},
   {
     "username": "lewbew02",
-		"password": "123456",
+		"password": "correcthorsebatterystaple",
     "forename": "Lewis",
     "surname": "Sudbury",
     "role": "A-Team Captain"
   },
   {
     "username": "tomthetank",
-		"password": "123456",
+		"password": "starwars",
     "forename": "Tom",
     "surname": "Lafferty",
     "role": "B-Team Captain"
   },
   {
     "username": "samchamp",
-		"password": "123456",
+		"password": "111111",
     "forename": "Sam",
     "surname": "Higginson",
     "role": "Social Secretary"
   },
   {
     "username": "hermworm",
-		"password": "123456",
+		"password": "apple",
     "forename": "Herman",
     "surname": "Wong",
     "role": "Treasurer"
   },
   {
     "username": "carrrolina",
-		"password": "123456",
+		"password": "qwerty",
     "forename": "Carolina",
     "surname": "Girlons",
     "role": "Photographer"
@@ -151,6 +151,7 @@ app.get('/people/:username', (request, response) => {
 
 app.post('/people', (request, response) => {
 	const username = request.headers.username;
+	const password = request.headers.password;
 	const forename = request.headers.forename;
 	const surname = request.headers.surname;
 	const role = request.headers.role;
@@ -167,7 +168,7 @@ app.post('/people', (request, response) => {
 	else{
 		const person = {
 		    "username": username,
-				"password": "123456",
+				"password": password,
 				"forename": forename,
 				"surname": surname,
 				"role": role

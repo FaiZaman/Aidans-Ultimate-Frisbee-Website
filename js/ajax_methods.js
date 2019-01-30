@@ -93,13 +93,14 @@ $(document).ready(function(){
   $("#add-member-form").on('submit', function(e){
     e.preventDefault();
     const username = $("#new-username").val();
+    const password = $("#new-password").val();
     const forename = $("#new-forename").val();
     const surname = $("#new-surname").val();
     const role = $("#new-role").val();
-    postData(username, forename, surname, role);
+    postData(username, password, forename, surname, role);
   });
 
-  function postData(username, forename, surname, role){
+  function postData(username, password, forename, surname, role){
     // add a new person to the JSON using a POST request
     $.ajax({
       type: "POST",
@@ -107,6 +108,7 @@ $(document).ready(function(){
       url: "/people",
       headers: {
         "username": username,
+        "password": password,
         "forename": forename,
         "surname": surname,
         "role": role,
@@ -121,6 +123,7 @@ $(document).ready(function(){
 
   function emptyFields(){
     $("#new-username").val("");
+    $("#new-password").val("");
     $("#new-forename").val("");
     $("#new-surname").val("");
     $("#new-role").val("");

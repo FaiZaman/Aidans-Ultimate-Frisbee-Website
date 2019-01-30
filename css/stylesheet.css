@@ -119,6 +119,11 @@ p{
   padding-right: 10px;
 }
 
+#buttons{
+  float: right;
+  margin-right: 50px;
+}
+
 #footer{
   background-color: lightgreen;
   text-align: center;
