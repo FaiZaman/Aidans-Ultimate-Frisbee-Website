@@ -38,6 +38,16 @@ $(document).ready(function(){
       let emptyId = "role-empty";
       validateInput(textId, errorId, emptyId);
     }
+    else if (textId == "our-score"){
+      let errorId = "our-error";
+      let emptyId = "our-empty";
+      validateScore(textId, errorId, emptyId);
+    }
+    else if (textId == "their-score"){
+      let errorId = "their-error";
+      let emptyId = "their-empty";
+      validateScore(textId, errorId, emptyId);
+    }
     else{
       validatePassword(textId);
     }
@@ -47,12 +57,32 @@ $(document).ready(function(){
     let input = $("#" + textId);
     const regex = /^[a-zA-Z ,.'-]+$/;
     let value = regex.test(input.val());
-    if(!value){
+    if (!value){
       if (input.val() == ""){
-        $("#" + emptyId).show(500).effect("shake");
+        $("#" + emptyId).show(500);
       }
       else{
-        $("#" + errorId).show(500).effect("shake");
+        $("#" + errorId).show(500);
+      }
+      $("#add-member-submit-button").addClass('disabled');
+    }
+    else{
+      $("#" + emptyId).hide(500);
+      $("#" + errorId).hide(500);
+      $("#add-member-submit-button").removeClass('disabled');
+    }
+  }
+
+  function validateScore(textId, errorId, emptyId){
+    let input = $("#" + textId);
+    const regex = /^[0-9]+$/;
+    let value = regex.test(input.val());
+    if (!value){
+      if (input.val() == ""){
+        $("#" + emptyId).show(500);
+      }
+      else{
+        $("#" + errorId).show(500);
       }
       $("#add-member-submit-button").addClass('disabled');
     }

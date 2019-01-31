@@ -66,14 +66,14 @@
               <div class="row">
                 <label for="username" class="control-label col-xs-2">Username:</label>
                 <div class="col-md-8">
-                  <input type="text" id="username" class="form-control" placeholder="Enter username">
+                  <input type="text" id="username" class="form-control" placeholder="Enter username" required>
                 </div>
               </div>
               <br>
               <div class="row">
                 <label for="password" class="control-label col-xs-2">Password:</label>
                 <div class="col-md-8">
-                  <input type="password" id="password" class="form-control" placeholder="Enter password"><br>
+                  <input type="password" id="password" class="form-control" placeholder="Enter password" required><br>
                   <span class="error" id="login-error">The username or password is incorrect</span>
                 </div>
               </div>
@@ -101,11 +101,40 @@
           <th scope="col">Date</th>
           <th scope="col">Time</th>
       </thead>
-      <tbody>
+      <tbody id="matchesTableBody">
 
       </tbody>
     </table>
+    <h4 id="permission">Only members of the Exec have permission to update a match score.</h4>
+    <button class="btn btn-success" id="add-member-button">Update new match score</button>
+    <div id="form-popup">
+      <form class="form-container form-horizontal" id="add-score-form" method="post">
+        <div class="form-group row">
+          <label for="surname" class="control-label col-xs-3">Our Score:</label>
+          <div class="col-xs-8">
+            <input type="text" class="form-control form-data" id="our-score" placeholder="Enter our score" required><br>
+            <span class="error" id="our-error">Score must be a number</span>
+            <span class="error" id="our-empty">Score is required</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="role" class="control-label col-xs-3">Their score:</label>
+          <div class="col-xs-8">
+            <input type="text" class="form-control form-data" id="their-score" placeholder="Enter their score" required><br>
+            <span class="error" id="their-error">Score must be a number</span>
+            <span class="error" id="their-empty">Score is required</span>
+          </div>
+          <div id="buttons">
+            <button type="submit" class="btn btn-primary" id="add-member-submit-button">Add</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
+</div>
+
+
 
   <div class="footer row" id="footer">
     <div class="col-xs-6">

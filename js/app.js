@@ -1,7 +1,9 @@
-/* jshint -W097*/
-/* jshint -W079 */
+/* jshint -W097 */
 /* jshint esversion: 6 */
 /* jshint node: true */
+/* jshint browser: true */
+/* jshint jquery: true */
+/* jshint devel: true */
 "use strict";
 
 const path = require('path');
@@ -155,11 +157,11 @@ app.post('/people', (request, response) => {
 	const forename = request.headers.forename;
 	const surname = request.headers.surname;
 	const role = request.headers.role;
-	const access_token = request.headers.access_token;
+	const accessToken = request.headers.access_token;
 
 	const duplicate = exec.find(p => p.username == username);
 
-	if (access_token != "concertina"){
+	if (accessToken != "concertina"){
 		response.status(403).send("Incorrect access token");
 	}
 	else if (duplicate){
@@ -175,6 +177,21 @@ app.post('/people', (request, response) => {
 		};
 
 		exec.push(person);
+		response.status(200).send();
+	}
+});
+
+app.post('/matches', (request, response) => {
+	const score = request.headers.result;
+	const accessToken = request.headers.access_token;
+
+	if (accessToken != "concertina"){
+		response.status(403).send("Incorrect access token");
+	}
+	else{
+		const result = {
+			"score": score,
+		};
 		response.status(200).send();
 	}
 });

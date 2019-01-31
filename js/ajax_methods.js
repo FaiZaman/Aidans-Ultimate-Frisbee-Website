@@ -7,23 +7,32 @@
 "use strict";
 
 $(document).ready(function(){
-  let loggedIn = false;
+
+  const origin = window.location.origin;
+  const urlPeople = origin + "/people";
+  const urlMatches = origin + "/matches";
+
+  checkLoggedIn();
+  getPeopleRequest();
+  getMatchesRequest();
 
   function checkLoggedIn(){
-    if (!loggedIn){
+    if ($("#login-button").text() != "Log Out"){
+      // user is logged out
       $("#add-member-button").hide();
     }
     else{
+      // user is logged in
       $("#add-member-button").show(500);
       $("#login-button").text("Log Out");
       $("#permission").hide(500);
     }
   }
-  checkLoggedIn();
 
   // verify login with JSON
   $("#login-button").on('click', function(){
-    if (loggedIn == false){
+    if ($(this).text() != "Log Out"){
+      // user is logged out
       $("#login-submit").on('click', function(){
         const username = $("#username").val();
         const password = $("#password").val();
@@ -31,7 +40,8 @@ $(document).ready(function(){
       });
     }
     else{
-      loggedIn = true;
+      // user is logged in
+      $(this).text("Log Out");
       location.reload();
     }
   });
@@ -44,26 +54,20 @@ $(document).ready(function(){
           if (password == value.password){
             $("#loginModal").hide(500);
             $("#login-close").click();
-            loggedIn = true;
+            $("#login-button").text("Log Out");
             checkLoggedIn();
           }
         }
       });
     });
-    if (!loggedIn){
-      // display error - wrong username or Password
+    // display error - wrong username or Password
+    if ($("#login-button").text() != "Log Out"){
+      // if not logged in
       $("#login-error").show(500);
-    }
-    else{
-      $("#login-error").hide(500);
     }
   }
 
-  const origin = window.location.origin;
-  const urlPeople = origin + "/people";
-  const urlMatches = origin + "/matches";
-
-  function getRequest(){
+  function getPeopleRequest(){
     $.getJSON(urlPeople, function(data){
       // get JSON and load it into the table
       let tableData = "";
@@ -79,22 +83,22 @@ $(document).ready(function(){
     });
   }
 
-  getRequest();
-
-  $.getJSON(urlMatches, function(data){
-    // get JSON and load it into the table
-    let tableData = "";
-    $.each(data, function(key, value){
-      tableData += "<tr>";
-      tableData += "<th scope='row'>" + value.opponent + "</th>";
-      tableData += "<td>" + value.score + "</td>";
-      tableData += "<td>" + value.venue + "</td>";
-      tableData += "<td>" + value.date + "</td>";
-      tableData += "<td>" + value.time + "</td>";
-      tableData += "</tr>";
+  function getMatchesRequest(){
+    $.getJSON(urlMatches, function(data){
+      // get JSON and load it into the table
+      let tableData = "";
+      $.each(data, function(key, value){
+        tableData += "<tr>";
+        tableData += "<th scope='row'>" + value.opponent + "</th>";
+        tableData += "<td>" + value.score + "</td>";
+        tableData += "<td>" + value.venue + "</td>";
+        tableData += "<td>" + value.date + "</td>";
+        tableData += "<td>" + value.time + "</td>";
+        tableData += "</tr>";
+      });
+      $("#matchTable").append(tableData);
     });
-    $("#matchTable").append(tableData);
-  });
+  }
 
   // get data submitted for a POST requested
   $("#add-member-form").on('submit', function(e){
@@ -104,10 +108,10 @@ $(document).ready(function(){
     const forename = $("#new-forename").val();
     const surname = $("#new-surname").val();
     const role = $("#new-role").val();
-    postData(username, password, forename, surname, role);
+    postPersonData(username, password, forename, surname, role);
   });
 
-  function postData(username, password, forename, surname, role){
+  function postPersonData(username, password, forename, surname, role){
     // add a new person to the JSON using a POST request
     $.ajax({
       type: "POST",
@@ -123,9 +127,55 @@ $(document).ready(function(){
       },
       dataType: "json",
     });
-    $("#tableBody").empty();
-    getRequest();
+    $("#peopleTableBody").empty();
+    getPeopleRequest();
     emptyFields();
+  }
+
+  $("#add-score-form").on('submit', function(e){
+    e.preventDefault();
+    const ourScore = $("#our-score").val();
+    const theirScore = $("#their-score").val();
+    let result = "";
+
+    if (ourScore > theirScore){
+      // victory
+      result = ourScore + " - " + theirScore + " (W)";
+    }
+    else if (theirScore > ourScore){
+      // defeat
+      result = ourScore + " - " + theirScore + " (L)";
+    }
+    else{
+      // draw
+      result = ourScore + " - " + theirScore + " (D)";
+    }
+
+    postScore(result);
+  });
+
+  function postScore(result){
+    // post the result of the match to update table
+    $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      url: "/matches",
+      headers: {
+        "result": result,
+        "access_token": "concertina"
+      },
+      dataType: "json",
+    });
+    $("#matchesTableBody").empty();
+    getMatchesRequest();
+    emptyFields();
+    $.getJSON(urlMatches, function(data){
+      $.each(data, function(key, value){
+        if (value.score == ""){
+          value.score = result;
+        }
+      });
+    });
   }
 
   function emptyFields(){
@@ -134,5 +184,7 @@ $(document).ready(function(){
     $("#new-forename").val("");
     $("#new-surname").val("");
     $("#new-role").val("");
+    $("#our-score").val("");
+    $("#their-score").val("");
   }
 });

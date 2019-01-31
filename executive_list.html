@@ -66,14 +66,14 @@
               <div class="row">
                 <label for="username" class="control-label col-xs-2">Username:</label>
                 <div class="col-md-8">
-                  <input type="text" id="username" class="form-control" placeholder="Enter username">
+                  <input type="text" id="username" class="form-control" placeholder="Enter username" required>
                 </div>
               </div>
               <br>
               <div class="row">
                 <label for="password" class="control-label col-xs-2">Password:</label>
                 <div class="col-md-8">
-                  <input type="password" id="password" class="form-control" placeholder="Enter password"><br>
+                  <input type="password" id="password" class="form-control" placeholder="Enter password" required><br>
                   <span class="error" id="login-error">The username or password is incorrect</span>
                 </div>
               </div>
@@ -97,7 +97,7 @@
           <th scope="col">Surname</th>
           <th scope="col">Role</th>
       </thead>
-      <tbody id="tableBody">
+      <tbody id="peopleTableBody">
 
       </tbody>
     </table>
@@ -108,7 +108,7 @@
         <div class="form-group row">
           <label for="username" class="control-label col-xs-3">Username:</label>
           <div class="col-xs-8">
-            <input type="text" class="form-control form-data" id="new-username" placeholder="Enter username"><br>
+            <input type="text" class="form-control form-data" id="new-username" placeholder="Enter username" required><br>
             <span class="error" id="username-error">Username cannot contain special characters</span>
             <span class="error" id="username-empty">Username is required</span>
           </div>
@@ -116,14 +116,14 @@
         <div class="form-group row">
           <label for="password" class="control-label col-xs-3">Password:</label>
           <div class="col-xs-8">
-            <input type="password" class="form-control form-data" id="new-password" placeholder="Enter password"><br>
+            <input type="password" class="form-control form-data" id="new-password" placeholder="Enter password" required><br>
             <span class="error" id="password-len">Password must be at least 6 characters long</span>
           </div>
         </div>
         <div class="form-group row">
           <label for="forename" class="control-label col-xs-3">Forename:</label>
           <div class="col-xs-8">
-            <input type="text" class="form-control form-data" id="new-forename" placeholder="Enter forename"><br>
+            <input type="text" class="form-control form-data" id="new-forename" placeholder="Enter forename" required><br>
             <span class="error" id="forename-error">Forename cannot contain special characters</span>
             <span class="error" id="forename-empty">Forename is required</span>
           </div>
@@ -131,7 +131,7 @@
         <div class="form-group row">
           <label for="surname" class="control-label col-xs-3">Surname:</label>
           <div class="col-xs-8">
-            <input type="text" class="form-control form-data" id="new-surname" placeholder="Enter surname"><br>
+            <input type="text" class="form-control form-data" id="new-surname" placeholder="Enter surname" required><br>
             <span class="error" id="surname-error">Surname cannot contain special characters</span>
             <span class="error" id="surname-empty">Surname is required</span>
           </div>
@@ -139,7 +139,7 @@
         <div class="form-group row">
           <label for="role" class="control-label col-xs-3">Role:</label>
           <div class="col-xs-8">
-            <input type="text" class="form-control form-data" id="new-role" placeholder="Enter role"><br>
+            <input type="text" class="form-control form-data" id="new-role" placeholder="Enter role" required><br>
             <span class="error" id="role-error">A role cannot contain special characters</span>
             <span class="error" id="role-empty">A role is required</span>
           </div>
