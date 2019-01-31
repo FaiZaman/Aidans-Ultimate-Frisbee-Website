@@ -11,12 +11,12 @@ $(document).ready(function(){
 
   function checkLoggedIn(){
     if (!loggedIn){
-      //$("#add-member-button").hide();
-      $("#login-button").text("Log In");
+      $("#add-member-button").hide();
     }
     else{
       $("#add-member-button").show(500);
       $("#login-button").text("Log Out");
+      $("#permission").hide(500);
     }
   }
   checkLoggedIn();
@@ -31,8 +31,8 @@ $(document).ready(function(){
       });
     }
     else{
-      loggedIn = false;
-      checkLoggedIn();
+      loggedIn = true;
+      location.reload();
     }
   });
 
@@ -50,6 +50,13 @@ $(document).ready(function(){
         }
       });
     });
+    if (!loggedIn){
+      // display error - wrong username or Password
+      $("#login-error").show(500);
+    }
+    else{
+      $("#login-error").hide(500);
+    }
   }
 
   const origin = window.location.origin;

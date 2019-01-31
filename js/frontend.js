@@ -49,10 +49,10 @@ $(document).ready(function(){
     let value = regex.test(input.val());
     if(!value){
       if (input.val() == ""){
-        $("#" + emptyId).show(500);
+        $("#" + emptyId).show(500).effect("shake");
       }
       else{
-        $("#" + errorId).show(500);
+        $("#" + errorId).show(500).effect("shake");
       }
       $("#add-member-submit-button").addClass('disabled');
     }

@@ -23,7 +23,7 @@
     </a>
     <div id="login-link">
       <button class="btn btn-primary" data-toggle="modal"
-       data-target="#loginModal">Log In
+       data-target="#loginModal" id="login-button">Log In
        <img src="img/login.jpg" id="login-img">
      </button>
     </div>
@@ -119,6 +119,7 @@
                 <label for="password" class="control-label col-xs-2">Password:</label>
                 <div class="col-md-8">
                   <input type="password" id="password" class="form-control" placeholder="Enter password"><br>
+                  <span class="error" id="login-error">The username or password is incorrect</span>
                 </div>
               </div>
             </div>
@@ -199,6 +200,7 @@
 
 </body>
 
+<script src="js/frontend.js"></script>
 <script src="js/ajax_methods.js"></script>
 
 </html>

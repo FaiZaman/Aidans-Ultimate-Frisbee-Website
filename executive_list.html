@@ -74,6 +74,7 @@
                 <label for="password" class="control-label col-xs-2">Password:</label>
                 <div class="col-md-8">
                   <input type="password" id="password" class="form-control" placeholder="Enter password"><br>
+                  <span class="error" id="login-error">The username or password is incorrect</span>
                 </div>
               </div>
             </div>
@@ -100,7 +101,7 @@
 
       </tbody>
     </table>
-
+    <h4 id="permission">Only members of the Exec have permission to add new exec members.</h4>
     <button class="btn btn-success" id="add-member-button">Add new Exec member</button>
     <div id="form-popup">
       <form class="form-container form-horizontal" id="add-member-form" method="post">
