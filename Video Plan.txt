@@ -7,11 +7,11 @@ Start on home (index) page
 Move to match schedules page
 	- Describe its function: easy way to view upcoming matches and previous scores
 	- Title, navbar, and footer are all in same place
-	- Scores updated through json (maybe update this to add scores instead)
+	- Scores updated through json, can be added but do not demonstrate
 
 Move to executive list page
 	- Describe this as main people page, all members listed are part of exec
-	- Only exec members (logged in) can add add members to this list, demonstrate
+	- Only exec members (logged in) can add members to this list, demonstrate
 	- Log in, do incorrect password first to show error popup and then correct it
 	- maybe show /people to prove password is correct
 	- comment on how add member button only appears after login
