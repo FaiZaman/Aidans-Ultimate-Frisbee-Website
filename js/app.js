@@ -97,7 +97,7 @@ let matches = [
 	},
 	{
 		"opponent": "Castle A's",
-		"score": "",
+		"score": "5 - 10 (L)",
 		"venue": "Whinney Hill 2",
 		"date": "16/02/2019",
 		"time": "01:00pm"
