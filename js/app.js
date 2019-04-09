@@ -104,14 +104,14 @@ let matches = [
 	},
 	{
 		"opponent": "Trevelyan A's",
-		"score": "",
+		"score": "5 - 9 (L)",
 		"venue": "Whinney Hill 1",
 		"date": "23/02/2019",
 		"time": "01:00pm"
 	},
 	{
 		"opponent": "Grey A's",
-		"score": "",
+		"score": "9 - 8 (W)",
 		"venue": "Whinney Hill 2",
 		"date": "24/02/2019",
 		"time": "01:00pm"
@@ -119,16 +119,16 @@ let matches = [
 	{
 		"opponent": "Ustinov A's",
 		"score": "",
-		"venue": "Whinney Hill 2",
-		"date": "09/03/2019",
-		"time": "01:00pm"
+		"venue": "American Football Pitch",
+		"date": "04/05/2019",
+		"time": "10:00am"
 	},
 	{
 		"opponent": "St Chad's A's",
 		"score": "",
-		"venue": "Whinney Hill 1",
-		"date": "10/03/2019",
-		"time": "12:00pm"
+		"venue": "American Football Pitch",
+		"date": "05/05/2019",
+		"time": "10:00am"
 	}
 ];
 
