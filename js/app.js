@@ -15,13 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname + '/..')));
 
 let exec = [
-	{
-    "username": "doctorwhocomposer",
-		"password": "abcdef",
-		"forename": "Delia",
-		"surname": "Derbyshire",
-		"role": "Composer"
-	},
   {
     "username": "lewbew02",
 		"password": "correcthorsebatterystaple",
